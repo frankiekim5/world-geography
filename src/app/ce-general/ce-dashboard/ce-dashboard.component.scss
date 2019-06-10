@@ -1,0 +1,68 @@
+h2 {
+  margin: 0 0 1em 0.5em;
+  font-weight: normal;
+  color: #546E7A;
+  width: 50%;
+}
+.dashboard {
+  width: 100%;
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  padding: 0.5em 0;
+  width: 100%;
+  height: 100%;
+  display: inherit;
+  flex-direction: inherit;
+}
+.flag {
+  width: 150px;
+  height: 100px;
+}
+.country-information {
+  display: inherit;
+  flex-direction: column;
+  margin-right: 5em;
+}
+.country-dashboard {
+  margin-left: 0.5em;
+  display: inherit;
+  flex-direction: row;
+}
+.country-dashboard h3, p {
+  color: #546E7A;
+  margin: 0 0 0.5em 0.5em;
+}
+.country-dashboard div {
+  display: inherit;
+  flex-direction: column;
+}
+.country-dashboard img {
+  border: 2px solid #CFD8DC;
+  box-shadow: 2px 2px 2px 2px #eeeeee;
+}
+#dashboard-countries {
+  display: inherit;
+  flex-direction: row;
+}
+#dashboard-countries h2 {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+#dashboard-countries ul {
+  margin-block-start: 0.5em;
+  margin-left: 0.75em;
+  padding: 0.25em;
+  // padding-left: 0;
+  background-color: #ECEFF1;
+  width: 90%;
+}
+#dashboard-countries li {
+  margin-bottom: 0.5em;
+  list-style-type: none;
+  border-bottom: 1.5px solid #EEEEEE;
+  width: 100%;
+}

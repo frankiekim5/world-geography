@@ -1,0 +1,69 @@
+<input [(ngModel)]="searchText" placeholder="Search for a country..." id="search-country">
+
+<app-filter-arrow
+  (filterCondition)="toggleFilters($event)"
+  >
+</app-filter-arrow>
+
+<app-sidebar></app-sidebar>
+
+<ng-container *ngIf="showFilters">
+  <div class="filter-container">
+    <div class="card">
+      <h3>Filter By Region</h3>
+      <div class="region-buttons">
+        <button
+          *ngFor="let region of regionObjects"
+          [name]="region.name"
+          [ngClass]="{'button-clicked': region.active}"
+          (click)="filterRegion(region)"
+          >
+          {{region.name}}
+        </button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Filter By Population</h3>
+      <div class="pop-filters">
+        <input type="number" [(ngModel)]="lowerBound">
+        <input type="number" [(ngModel)]="upperBound">
+      </div>
+    </div>
+    <div class="card">
+      <h3>Filter By Languages</h3>
+      <select name="language-filter"
+        class="select-filter"
+        [(ngModel)]="selectedLanguage"
+        >
+        <option value="all">All</option>
+        <option *ngFor="let language of allLanguages" [value]="language">
+          {{language}}
+        </option>
+      </select>
+    </div>
+    <div class="card">
+      <h3>Filter By Regional Bloc</h3>
+      <select name="bloc-filter"
+      class="select-filter"
+      [(ngModel)]="selectedBloc"
+      >
+        <option value="all">All</option>
+        <option *ngFor="let bloc of regionalBlocsArray" [value]="bloc">
+          {{bloc}}
+        </option>
+      </select>
+    </div>
+  </div>
+</ng-container>
+
+<app-map-table
+  [activeRegions]="activeRegions"
+  [searchText]="searchText"
+  [populationBounds]="{lowerBound: lowerBound, upperBound: upperBound}"
+  [selectedLanguage]="selectedLanguage"
+  [selectedBloc]="selectedBloc"
+  (languages)="setAllLanguages($event)"
+  >
+</app-map-table>
+
+<app-flag-preview></app-flag-preview>

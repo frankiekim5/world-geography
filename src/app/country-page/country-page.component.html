@@ -1,0 +1,81 @@
+<app-sidebar></app-sidebar>
+
+<ng-container *ngIf="selectedCountry">
+  <div class="header">
+    <h2>Details about {{selectedCountry.name}}</h2>
+    <h2>{{currentTime | date:'hh:mm:ss a z'}}</h2>
+  </div>
+  <img [src]="selectedCountry.flag"
+    alt="{{selectedCountry.name}} flag"
+    class="country-image"
+    *ngIf="selectedCountry.flag"
+  >
+  <div class="details-layout">
+    <div class="card">
+      <h2>General Information</h2>
+      <p>
+        <b>Native Name:</b>
+          <ng-container *ngIf="selectedCountry?.nativeName; else na">
+            {{selectedCountry.nativeName}}
+          </ng-container>
+        </p>
+      <p>
+        <b>Capital:</b>
+          <ng-container *ngIf="selectedCountry?.capital; else na">
+            {{selectedCountry.capital}}
+          </ng-container>
+        </p>
+      <p>
+        <b>Language(s):</b>
+        <span *ngFor="let language of selectedCountry.languages" class="separate-array">
+          {{language.name}}
+        </span>
+      </p>
+    </div>
+    <div class="card">
+      <h2>Statistics</h2>
+      <p>
+        <b>Area:</b> {{selectedCountry.area | number}} km²
+      </p>
+      <p>
+        <b>Population:</b> {{selectedCountry.population | number}}
+      </p>
+      <ng-container *ngIf="selectedCountry.latlng">
+        <p>
+          <b>Latitude:</b> {{selectedCountry.latlng[0]}}
+        </p>
+        <p>
+          <b>Longitude:</b> {{selectedCountry.latlng[1]}}
+        </p>
+      </ng-container>
+    </div>
+    <div class="card">
+      <h2>Regional Information</h2>
+      <p>
+        <b>Region:</b>
+        <ng-container *ngIf="selectedCountry?.region; else na">
+          {{selectedCountry.region}}
+        </ng-container>
+      </p>
+      <p>
+        <b>Sub-Region:</b>
+        <ng-container *ngIf="selectedCountry?.subregion; else na">
+          {{selectedCountry.subregion}}
+        </ng-container>
+      </p>
+      <p>
+        <b>Regional Blocs:</b>
+        <ng-container *ngIf="selectedCountry.regionalBlocs?.length; else na">
+          <span *ngFor="let bloc of selectedCountry.regionalBlocs" class="separate-array">
+            {{bloc.name}}
+          </span>
+        </ng-container>
+      </p>
+    </div>
+  </div>
+</ng-container>
+
+
+<ng-template #na>
+  N/a
+</ng-template>

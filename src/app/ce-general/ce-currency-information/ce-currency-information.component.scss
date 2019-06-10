@@ -1,0 +1,61 @@
+img {
+  margin: 0.5em 0 0 0.5em;
+  width: 60px;
+  height: 50px;
+}
+.container {
+  width: 76%;
+}
+.container h2 {
+  margin: 0.5em;
+  font-weight: normal;
+  color: #546E7A;
+  width: 100%;
+}
+.conversion-container {
+  display: flex;
+  flex-direction: row;
+}
+.conversion-container i {
+  margin: 1em;
+}
+.selected-currency h2, h3 {
+  font-size: 15px;
+  color: #546E7A;
+  margin: 0 0.5em 0.5em;
+  text-align: left;
+}
+.selected-currency h3 {
+  font-weight: normal;
+  width: 40%;
+  color: #90A4AE;
+}
+.selected-currency input {
+  margin: 0 0.5em 0.5em;
+  border: 1px groove #CFD8DC;
+}
+.exchange {
+  margin-left: 5em;
+}
+.targeted-currency {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.targeted-currency select {
+  border: 2px groove #546E7A;
+}
+.final-conversion {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.final-conversion p {
+  margin: 0.5em;
+}
+.final-conversion p:last-child {
+  color: #90A4AE;
+}

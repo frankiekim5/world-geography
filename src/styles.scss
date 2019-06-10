@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  color: lightslategray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+button {
+  margin: 1em;
+  padding: 0.5em 0.4em;
+  font-size: 15px;
+  border: 2px solid #90A4AE;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  outline: none;
+  box-shadow: 2px 2px 2px 2px #eeeeee;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: 2px 4px 4px 2px #eeeeee;
+}
+.button-clicked {
+  background-color: #90A4AE;
+  border-color: #CFD8DC;
+  transition: 0.3s;
+}
+.button-unclicked {
+  background-color: whitesmoke;
+  transition: 0.5s;
+}
+.button-fade {
+  background-color: #E0E0E0;
+  transition: 0.5s;
+}
+.card {
+  box-shadow: 2px 4px 8px 2px #eeeeee;
+  border-radius: 6px;
+  transition: 0.3s box-shadow;
+  margin: 0.75em;
+  display: inline-block;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 lightslategray;
+}
+.separate-array::before {
+  content: ',';
+}
+.separate-array:first-of-type::before {
+  content: '';
+}

@@ -1,0 +1,21 @@
+<app-sidebar></app-sidebar>
+
+<div class="currency-container">
+  <h2>Currency Exchange Rates</h2>
+
+  <app-ce-dashboard></app-ce-dashboard>
+
+  <app-ce-select-currency
+    (isCurrencySelected)="isCurrencySelected($event)"
+    (currencySelected)="currencySelected($event)"
+    >
+  </app-ce-select-currency>
+
+  <ng-container *ngIf="showCurrencyInformation">
+    <app-ce-currency-information
+      [currency]="currency"
+      >
+    </app-ce-currency-information>
+  </ng-container>
+
+</div>

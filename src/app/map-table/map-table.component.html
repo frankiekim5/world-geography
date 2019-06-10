@@ -1,0 +1,90 @@
+<table class="card country-table">
+  <thead>
+    <tr>
+      <th>
+        Country
+        <div class="no-wrap">
+          <div class="arrow-up" (click)="sortCountry(UPSTRING, NAMESTRING)"></div>
+          <div class="arrow-down" (click)="sortCountry(DOWNSTRING, NAMESTRING)"></div>
+        </div>
+      </th>
+      <th>
+        Capital
+        <div class="no-wrap">
+          <div class="arrow-up" (click)="sortCountry(UPSTRING, CAPITALSTRING)"></div>
+          <div class="arrow-down" (click)="sortCountry(DOWNSTRING, CAPITALSTRING)"></div>
+        </div>
+      </th>
+      <th>
+        Region
+        <div class="no-wrap">
+          <div class="arrow-up" (click)="sortCountry(UPSTRING, REGIONSTRING)"></div>
+          <div class="arrow-down" (click)="sortCountry(DOWNSTRING, REGIONSTRING)"></div>
+        </div>
+      </th>
+      <th>
+        Population
+        <div class="no-wrap">
+          <div class="arrow-up" (click)="sortCountry(UPSTRING)"></div>
+          <div class="arrow-down" (click)="sortCountry(DOWNSTRING)"></div>
+        </div>
+      </th>
+      <th>
+        Languages
+        <div class="no-wrap">
+          <div class="arrow-up" (click)="sortCountry(UPSTRING)"></div>
+          <div class="arrow-down" (click)="sortCountry(DOWNSTRING)"></div>
+        </div>
+      </th>
+      <th>
+        Regional Bloc
+        <div class="no-wrap">
+          <div class="arrow-up" (click)="sortCountry(UPSTRING)"></div>
+          <div class="arrow-down" (click)="sortCountry(DOWNSTRING)"></div>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let country of (countryData
+      | filter
+      : searchText
+      : selectedLanguage
+      : selectedBloc)"
+      class="content-rows"
+      (click)="navSelectedCountry(country.alpha3Code)"
+      (mouseenter)="triggerFlagPreview(country.flag)"
+      (mouseleave)="triggerFlagPreview()"
+      >
+      <td>{{country.name}}</td>
+      <td>
+        <ng-container *ngIf="country?.capital; else na">
+          {{country.capital}}
+        </ng-container>
+      </td>
+      <td>
+        <ng-container *ngIf="country?.region; else na">
+          {{country.region}}
+        </ng-container>
+      </td>
+      <td>{{country.population | number}}</td>
+      <td>
+        <span *ngFor="let language of country.languages" class="separate-array">
+          {{language.name}}
+        </span>
+      </td>
+      <td>
+        <ng-container *ngIf="country.regionalBlocs?.length === 0">
+          Unaffiliated
+        </ng-container>
+        <span *ngFor="let bloc of country.regionalBlocs" class="separate-array">
+          {{bloc.acronym}}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+  <ng-template #na>
+    N/a
+  </ng-template>

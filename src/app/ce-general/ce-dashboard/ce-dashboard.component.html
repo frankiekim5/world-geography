@@ -1,0 +1,72 @@
+<div class="dashboard">
+  <div class="card" *ngIf="usaCountry && usaCurrency && euroCurrency && britishCurrency">
+    <h2>Dashboard</h2>
+
+    <div id="dashboard-countries">
+      <div class="country-information">
+        <div class="country-dashboard">
+          <img
+            [src]="usaCountry.flag"
+            alt="{{usaCountry.name}} flag"
+            class="flag">
+          <div>
+            <h3>United States of America</h3>
+            <p>Currency: {{usaCurrency.base}}</p>
+          </div>
+        </div>
+        <h2>1 USD:</h2>
+        <ul>
+          <li>{{usaCurrency.rates.EUR | number}} EUR (euros)</li>
+          <li>{{usaCurrency.rates.GBP | number}} GBP (pounds)</li>
+          <li>{{usaCurrency.rates.CAD | number}} CAD (canadian)</li>
+          <li>{{usaCurrency.rates.KRW | number}} KRW (won)</li>
+          <li>{{usaCurrency.rates.CHF | number}} CHF (swiss franc)</li>
+        </ul>
+      </div>
+
+      <div class="country-information">
+        <div class="country-dashboard">
+          <img
+            src="../../../assets/images/eu_flag.png"
+            alt="European Union flag"
+            class="flag">
+          <div>
+            <h3>European Union</h3>
+            <p>Currency: EUR</p>
+          </div>
+        </div>
+        <h2>1 EUR:</h2>
+        <ul>
+          <li>{{euroCurrency.rates.USD | number}} USD (dollars)</li>
+          <li>{{euroCurrency.rates.GBP | number}} GBP (pounds)</li>
+          <li>{{euroCurrency.rates.CAD | number}} CAD (canadian)</li>
+          <li>{{euroCurrency.rates.KRW | number}} KRW (won)</li>
+          <li>{{euroCurrency.rates.CHF | number}} CHF (swiss franc)</li>
+        </ul>
+      </div>
+
+      <div class="country-information">
+        <div class="country-dashboard">
+          <img
+            src="../../../assets/images/uk_flag.png"
+            alt="British flag"
+            class="flag">
+          <div>
+            <h3>United Kingdom</h3>
+            <p>Currency: GBP</p>
+          </div>
+        </div>
+        <h2>1 GBP:</h2>
+        <ul>
+          <li>{{britishCurrency.rates.USD | number}} USD (dollars)</li>
+          <li>{{britishCurrency.rates.EUR | number}} EUR (euros)</li>
+          <li>{{britishCurrency.rates.CAD | number}} CAD (canadian)</li>
+          <li>{{britishCurrency.rates.KRW | number}} KRW (won)</li>
+          <li>{{britishCurrency.rates.CHF | number}} CHF (swiss franc)</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>

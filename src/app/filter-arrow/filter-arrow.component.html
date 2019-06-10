@@ -1,0 +1,7 @@
+<ng-container *ngIf="!showFilters; else arrowUp">
+  <button (click)="toggleFilters(true)"><i class="fas fa-angle-down arrow"></i></button>
+</ng-container>
+
+<ng-template #arrowUp>
+  <button [ngClass]="{'arrow-up': true}" (click)="toggleFilters(false)"><i class="fas fa-angle-up arrow"></i></button>
+</ng-template>

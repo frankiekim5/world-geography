@@ -1,0 +1,51 @@
+<div class="card container">
+  <h2>Conversions</h2>
+
+  <ng-container *ngIf="selectedCountry">
+    <div class="conversion-container">
+      <div class="card selected-currency">
+        <img
+          *ngIf="selectedCountry.flag"
+          [src]="selectedCountry.flag"
+          alt="{{selectedCountry.name}} flag"
+          >
+        <h2 *ngIf="selectedCountry.currencies">
+          {{selectedCountry.currencies[0].name | titlecase}}
+        </h2>
+        <h3>Amount:</h3>
+        <input
+          type="text"
+          [(ngModel)]="conversionAmount"
+          (ngModelChange)="convertCurrency()"
+          >
+      </div>
+
+      <i class="fas fa-exchange-alt fa-3x exchange"></i>
+
+      <div class="card targeted-currency">
+        <select
+          name="conversion-options"
+          id="conversion-input"
+          [(ngModel)]="targetedCurrency"
+          (ngModelChange)="convertCurrency()"
+          >
+          <option *ngFor="let currency of allCurrencies" [value]="currency.alpha2Code">
+            {{currency.currencies[0].name | titlecase}}
+          </option>
+        </select>
+      </div>
+
+      <i class="fas fa-equals fa-3x exchange"></i>
+
+      <div class="card">
+        <h2>Your Total:</h2>
+        <div class="final-conversion">
+          <p>{{finalConversion | number: '.1-5'}}</p>
+          <p>{{finalCurrency | titlecase}}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </ng-container>
+</div>

@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="flag">
+    <ng-container *ngIf="!flagImage; else flag">
+      <i>Hover over a country to see their flag!</i>
+    </ng-container>
+    <ng-template #flag>
+      <img [src]="flagImage" alt="" *ngIf="flagImage">
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+h2 {
+  margin-bottom: 0;
+  font-weight: normal;
+  border-bottom: 2px solid #CFD8DC;
+  color: #546E7A;
+  width: 100%;
+}
+h3 {
+  font-weight: 500;
+  font-style: italic;
+  color: #78909C;
+}
+.currency-container {
+  width: 79.5%;
+  padding: 0 2.5em 0.5em;
+  margin-left: 5.5em;
+  display: flex;
+  flex-direction: column;
+}
+.currency-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.currency-options button {
+  margin: 0;
+}
+.currency-options button:hover {
+  background-color: #546E7A;
+}

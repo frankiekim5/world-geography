@@ -1,0 +1,22 @@
+<div class="select-body">
+  <div class="card">
+    <h2>Select a Currency</h2>
+
+    <div id="currency-buttons">
+      <button
+        *ngFor="let cur of allCurrencies"
+        (mouseenter)="triggerPreview(cur.code)"
+        (mouseleave)="resetPreview()"
+        (click)="currencyButtonClick(cur)"
+        [ngClass]="{'button-clicked': cur.active, 'button-fade': oneButtonClicked && !cur.active}"
+        >
+        {{cur.code}}
+      </button>
+    </div>
+
+  </div>
+
+  <div class="country-preview">
+    <app-ce-flag-preview></app-ce-flag-preview>
+  </div>
+</div>

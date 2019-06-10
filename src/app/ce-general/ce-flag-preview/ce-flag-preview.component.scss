@@ -1,0 +1,45 @@
+img {
+  width: 150px;
+  height: 100px;
+}
+p {
+  float: right;
+  margin-right: 5em;
+  margin-top: 7.5em;
+}
+.flag {
+  float: right;
+  margin-right: 5em;
+  margin-top: 0.5em;
+  width: 165px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ECEFF1;
+  border: 1px groove #CFD8DC;
+}
+.preview {
+  float: left;
+  max-width: 100%;
+  height: auto;
+}
+.preview-image {
+  margin-top: 0.5em;
+  border: 1px groove #CFD8DC;
+  max-width: 100%;
+  height: auto;
+}
+.card h2 {
+  font-size: 15px;
+  color: #546E7A;
+  margin: 0.5em 0.5em 0 0.5em;
+  text-align: center;
+  width: 75%;
+}
+.card h3 {
+  font-size: 13px;
+  font-weight: normal;
+  color: #90A4AE;
+}

@@ -1,0 +1,22 @@
+h2 {
+  margin: 0.5em;
+  font-weight: normal;
+  color: #546E7A;
+  width: 100%;
+}
+#currency-buttons {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+}
+#currency-buttons button:hover {
+  cursor: pointer;
+  box-shadow: 4px 4px 4px 4px #eeeeee;
+}
+.select-body {
+  display: flex;
+  flex-direction: row;
+}
+.country-preview {
+  margin-left: 3em;
+  width: 20%;
+}

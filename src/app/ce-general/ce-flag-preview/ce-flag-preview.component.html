@@ -1,0 +1,5 @@
+<div *ngIf="previewCountry" class="card flag preview">
+  <img [src]="previewCountry.flag" alt="{{previewCountry.name}} flag" class="preview-image">
+  <h2>{{previewCountry.name}}</h2>
+  <h3>{{previewCountry.currencies[0].name | titlecase}}</h3>
+</div>
