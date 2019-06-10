@@ -11,8 +11,8 @@ import { Country } from '../../interfaces/country';
 })
 export class CeDashboardComponent implements OnInit {
 
-  usaCurrency: Currencies = {};
-  usaCountry: Country = {};
+  usaCurrency: Currencies;
+  usaCountry: Country;
   britishCurrency: Currencies;
   euroCurrency: Currencies;
 
@@ -36,12 +36,11 @@ export class CeDashboardComponent implements OnInit {
   private getUSAInformation() {
     this.countriesService.getCurrencyData('latest/?base=USD')
       .pipe(take(1)).subscribe(result => {
-        Object.assign(this.usaCurrency, result);
+        this.usaCurrency = result;
       });
     this.countriesService.getCountryData('alpha/USA')
       .pipe(take(1)).subscribe(result => {
-        Object.assign(this.usaCountry, result);
-        console.log(this.usaCountry);
+        this.usaCountry = result;
       });
   }
 

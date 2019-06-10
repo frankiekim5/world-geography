@@ -69,9 +69,9 @@ export class CeSelectCurrencyComponent implements OnInit {
 
   currencyButtonClick(cur: Currency) {
     this.allCurrencies.map(value => {
-      value.code !== cur.code ? value.active = false : value.active = true;
+      value.active = value.code === cur.code;
     });
-    cur.active ? this.oneButtonClicked = true : this.oneButtonClicked = false;
+    this.oneButtonClicked = cur.active;
 
     this.isCurrencySelected.emit(this.oneButtonClicked);
 

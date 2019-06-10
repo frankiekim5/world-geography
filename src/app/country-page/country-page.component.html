@@ -6,7 +6,7 @@
     <h2>{{currentTime | date:'hh:mm:ss a z'}}</h2>
   </div>
   <img [src]="selectedCountry.flag"
-    alt="{{selectedCountry.name}} flag"
+    [alt]="selectedCountry.name + ' flag'"
     class="country-image"
     *ngIf="selectedCountry.flag"
   >
@@ -15,13 +15,13 @@
       <h2>General Information</h2>
       <p>
         <b>Native Name:</b>
-          <ng-container *ngIf="selectedCountry?.nativeName; else na">
+          <ng-container *ngIf="selectedCountry.nativeName; else na">
             {{selectedCountry.nativeName}}
           </ng-container>
         </p>
       <p>
         <b>Capital:</b>
-          <ng-container *ngIf="selectedCountry?.capital; else na">
+          <ng-container *ngIf="selectedCountry.capital; else na">
             {{selectedCountry.capital}}
           </ng-container>
         </p>
@@ -53,13 +53,13 @@
       <h2>Regional Information</h2>
       <p>
         <b>Region:</b>
-        <ng-container *ngIf="selectedCountry?.region; else na">
+        <ng-container *ngIf="selectedCountry.region; else na">
           {{selectedCountry.region}}
         </ng-container>
       </p>
       <p>
         <b>Sub-Region:</b>
-        <ng-container *ngIf="selectedCountry?.subregion; else na">
+        <ng-container *ngIf="selectedCountry.subregion; else na">
           {{selectedCountry.subregion}}
         </ng-container>
       </p>

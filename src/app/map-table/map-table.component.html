@@ -58,12 +58,12 @@
       >
       <td>{{country.name}}</td>
       <td>
-        <ng-container *ngIf="country?.capital; else na">
+        <ng-container *ngIf="country.capital; else na">
           {{country.capital}}
         </ng-container>
       </td>
       <td>
-        <ng-container *ngIf="country?.region; else na">
+        <ng-container *ngIf="country.region; else na">
           {{country.region}}
         </ng-container>
       </td>

@@ -17,7 +17,7 @@ export class CeCurrencyInformationComponent implements OnInit {
   private conversionRate: number;
   private selectedCurrency: Currency;
 
-  selectedCountry: Country = {};
+  selectedCountry: Country;
   allCurrencies: Country[] = [];
   targetedCurrency: string;
   conversionAmount = 0;
@@ -34,7 +34,7 @@ export class CeCurrencyInformationComponent implements OnInit {
       const code = currency.code.slice(0, 2);
       this.countriesService.getCountryData(`alpha/${code}`)
         .pipe(take(1)).subscribe(result => {
-          Object.assign(this.selectedCountry, result);
+          this.selectedCountry = result;
         });
     }
   }
@@ -48,9 +48,7 @@ export class CeCurrencyInformationComponent implements OnInit {
       .pipe(take(1)).subscribe((result: Currencies) => {
         this.currencyCodes = Object.keys(result.rates);
         this.currencyCodes.push(result.base);
-        this.currencyCodes.sort((a, b) => {
-          return a.localeCompare(b);
-        });
+        this.currencyCodes.sort();
         this.countriesService.getCountryData(ALLSTRING)
           .pipe(take(1)).subscribe((res: Country[]) => {
             for (const country of res) {

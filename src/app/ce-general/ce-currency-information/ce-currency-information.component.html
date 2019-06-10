@@ -7,7 +7,7 @@
         <img
           *ngIf="selectedCountry.flag"
           [src]="selectedCountry.flag"
-          alt="{{selectedCountry.name}} flag"
+          [alt]="selectedCountry.name + ' flag'"
           >
         <h2 *ngIf="selectedCountry.currencies">
           {{selectedCountry.currencies[0].name | titlecase}}

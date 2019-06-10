@@ -12,7 +12,7 @@ import { take } from 'rxjs/operators';
 })
 export class CountryPageComponent implements OnInit {
 
-  selectedCountry: Country = {};
+  selectedCountry: Country;
 
   currentTime = new Date();
 
@@ -23,6 +23,7 @@ export class CountryPageComponent implements OnInit {
 
   ngOnInit() {
     this.getCountry();
+    // Have to hack it :(
     setInterval(() => {
       this.currentTime = new Date();
     }, 1);
@@ -32,7 +33,7 @@ export class CountryPageComponent implements OnInit {
     const alphaCode = this.route.snapshot.paramMap.get('alpha');
     this.countriesService.getCountryData(`alpha/${alphaCode}`)
       .pipe(take(1)).subscribe(result => {
-        Object.assign(this.selectedCountry, result);
+        this.selectedCountry = result;
       });
   }
 
